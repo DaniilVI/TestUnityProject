@@ -9,6 +9,13 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Activate Unity License
+        uses: game-ci/unity-license-activate@v2
+        with:
+          unityVersion: 2022.3.62f1
+          email: ${{ secrets.UNITY_EMAIL }}
+          password: ${{ secrets.UNITY_PASSWORD }}
 
       - name: Cache Unity packages
         uses: actions/cache@v3
@@ -27,7 +34,6 @@ jobs:
           buildsPath: build/
           buildMethod: BuildScript.BuildWindows
         env:
-          UNITY_LICENSE: 
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
