@@ -14,8 +14,9 @@ jobs:
         uses: game-ci/unity-activate@v2
         with:
           unityVersion: 2022.3.62f1
-          unityEmail: ${{ secrets.UNITY_EMAIL }}
-          unityPassword: ${{ secrets.UNITY_PASSWORD }}
+          username: ${{ secrets.UNITY_EMAIL }}
+          password: ${{ secrets.UNITY_PASSWORD }}
+          targetPlatform: StandaloneWindows64
 
       - name: Build with unity-builder
         uses: game-ci/unity-builder@v2
