@@ -2,11 +2,11 @@ name: Unity Windows Build
 
 on:
   push:
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v3
 
@@ -24,16 +24,16 @@ jobs:
           unityVersion: 2022.3.62f1
           targetPlatform: StandaloneWindows64
           buildName: MyGameWin
-          buildPath: build/windows
+          buildsPath: build/windows
           buildMethod: BuildScript.BuildWindows
-
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ""
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: Windows Build
-          path: build/*
+          path: build/windows/*
           overwrite: true
