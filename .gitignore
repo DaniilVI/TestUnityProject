@@ -1,0 +1,7 @@
+.*
+!.gitignore
+Library/
+Logs/
+UserSettings/
+*.csproj
+*.sln
