@@ -5,7 +5,7 @@ on:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
       - uses: actions/checkout@v3
@@ -24,10 +24,10 @@ jobs:
           unityVersion: 2022.3.62f1
           targetPlatform: StandaloneWindows64
           buildName: MyGameWin
-          buildsPath: build/windows
+          buildsPath: build/
           buildMethod: BuildScript.BuildWindows
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_LICENSE: 
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Windows Build
-          path: build/windows/*
+          path: build/*
           overwrite: true
